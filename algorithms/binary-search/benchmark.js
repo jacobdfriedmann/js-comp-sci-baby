@@ -8,12 +8,12 @@ module.exports = function benchmark() {
   }
 
   // Standard indexOf
-  let startTime = Date.now();
+  let startTime = process.hrtime();
   console.log('indexOf', orderedArray.indexOf(1234));
-  console.log('indexOf duration (ms)', Date.now() - startTime);
+  console.log('indexOf duration ([s, ns])', process.hrtime(startTime));
 
   // binarySearch
-  startTime = Date.now();
+  startTime = process.hrtime();
   console.log('binarySearch', binarySearch(orderedArray, 1234));
-  console.log('binarySearch duration (ms)', Date.now() - startTime);
+  console.log('binarySearch duration ([s, ns])', process.hrtime(startTime));
 }
