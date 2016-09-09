@@ -21,8 +21,11 @@ class LinkedList extends List {
     }
 
     get(index) {
-        let index = 0;
-        let node = h
+        let i = 0;
+        let node = this.head;
+        while (node !== null && i < index) {
+
+        }
     }
 
     indexOf(element) {
