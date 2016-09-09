@@ -5,7 +5,7 @@ const defaultCompare = require('../../utils/defaultCompare');
  */
 module.exports = function binarySearch(orderedArray, item, compare = defaultCompare, min = 0, max) {
   const start = min;
-  const end = max || (orderedArray.length - 1);
+  const end = max !== undefined ? max : (orderedArray.length - 1);
   if (start === end) {
     return orderedArray[start] === item ? start : -1;
   }
@@ -21,5 +21,6 @@ module.exports = function binarySearch(orderedArray, item, compare = defaultComp
     newStart = start;
     newEnd = midpoint;
   }
+  console.log(newStart, newEnd);
   return binarySearch(orderedArray, item, compare, newStart, newEnd);
 }

@@ -1,4 +1,4 @@
-const methodNotImplementedError = require('../utils/methodNotImplementedError');
+const methodNotImplementedError = require('../../utils/methodNotImplementedError');
 
 class List {
     add(element) {
@@ -25,7 +25,7 @@ class List {
         throw methodNotImplemented;
     }
 
-    constains(element) {
+    contains(element) {
         throw methodNotImplemented;
     }
 

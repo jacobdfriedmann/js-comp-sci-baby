@@ -1,3 +1,5 @@
+const List = require('./List');
+
 class ArrayList extends List {
     constructor() {
         super();
@@ -9,7 +11,7 @@ class ArrayList extends List {
     }
 
     get(index) {
-        return this.array[i];
+        return this.array[index];
     }
 
     indexOf(element) {
@@ -64,8 +66,8 @@ class ArrayList extends List {
          return undefined;
      }
 
-    constains(element) {
-        return this.indexOf(element) > 1;
+    contains(element) {
+        return this.indexOf(element) >= 0;
     }
 
     size() {

@@ -1,22 +1,23 @@
 const List = require('./List');
-const LinkedListNode = require('./LinkedListNode');
+const DoublyLinkedListNode = require('./DoublyLinkedListNode');
 
-class LinkedList extends List {
+class DoublyLinkedList extends List {
   constructor() {
     super();
     this.head = null;
+    this.tail = null;
   }
 
   add(element) {
-    const newNode = new LinkedListNode(element);
+    const newNode = new DoublyLinkedListNode(element);
     if (!this.head) {
       this.head = newNode;
+      this.tail = newNode;
     } else {
-      let node = this.head;
-      while (node.next) {
-        node = node.next;
-      }
-      node.next = newNode;
+      const temp = this.tail;
+      this.tail = newNode;
+      this.tail.previous = temp;
+      temp.next = newNode;
     }
   }
 
@@ -55,38 +56,43 @@ class LinkedList extends List {
   }
 
   removeElement(element) {
-    if (!this.head) {
-      return;
-    }
-    let parent = this.head;
-    let node = this.head.next;
+    let node = this.head;
     while (node) {
       if (node.element === element) {
-        parent.next = node.next;
+        if (node.previous) {
+          node.previous.next = node.next;
+        }
+        if (node.next) {
+          node.next.previous = node.previous;
+        }
         return;
       }
-      parent = node;
       node = node.next;
     }
   }
 
   removeAtIndex(index) {
-    if (!this.head) {
-      return;
-    }
+    let node = this.head;
     if (index === 0) {
       this.head = this.head.next;
-      return;
+      this.head.previous === null;
+    } else {
+      let i = 0;
+      for (; node && i < index; i++) {
+        node = node.next;
+      }
+      if (node && i === index) {
+        if (node.previous) {
+          node.previous.next = node.next;
+        }
+        if (node.next) {
+          node.next.previous = node.previous;
+        }
+      }
     }
-    let i = 0;
-    let parent = this.head;
-    let node = this.head.next;
-    for (; node && i < index; i++) {
-      parent = node;
-      node = node.next;
-    }
-    if (i === index && node) {
-      parent.next = node ? node.next : null;
+
+    if (node && !node.next) {
+      this.tail = this.node;
     }
   }
 
@@ -104,13 +110,12 @@ class LinkedList extends List {
   }
 
   forEach(lambda) {
-    let i = 0;
     let node = this.head;
-    for (; node; i++) {
+    while (node) {
       lambda(node.element);
       node = node.next;
     }
   }
 }
 
-module.exports = LinkedList;
+module.exports = DoublyLinkedList;

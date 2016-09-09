@@ -1,0 +1,22 @@
+{
+  "name": "js-comp-sci-baby",
+  "version": "1.0.0",
+  "description": "A collection of algorithms and data structures written in JavaScript. Intended to be used as a tool for learning, but I suppose could also be used to do things efficiently.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobdfriedmann/js-comp-sci-baby.git"
+  },
+  "author": "Jacob Friedmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacobdfriedmann/js-comp-sci-baby/issues"
+  },
+  "homepage": "https://github.com/jacobdfriedmann/js-comp-sci-baby#readme",
+  "devDependencies": {
+    "jest": "^15.1.1"
+  }
+}
