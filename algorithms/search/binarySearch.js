@@ -1,6 +1,4 @@
-const defaultCompare = (a, b) => {
-  return a > b;
-};
+const defaultCompare = require('../../utils/defaultCompare');
 
 /**
  * Recursively defined binary search implementation.
